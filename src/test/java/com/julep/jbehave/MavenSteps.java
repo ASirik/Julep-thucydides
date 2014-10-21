@@ -1,16 +1,15 @@
 package com.julep.jbehave;
 
+import com.julep.steps.UserSteps;
 import net.thucydides.core.annotations.Steps;
 import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
-import com.julep.steps.EndUserSteps;
-
-public class DefinitionSteps {
+public class MavenSteps {
 
     @Steps
-    EndUserSteps endUser;
+    UserSteps endUser;
 
     @Given("the user is on the Wikionary home page")
     public void givenTheUserIsOnTheWikionaryHomePage() {
