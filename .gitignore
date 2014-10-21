@@ -1,0 +1,10 @@
+.DS_Store
+*.class
+*.jar
+chromedriver.log
+target/*
+.idea
+selenium.iml
+*.json
+*.iml
+new_maven_emails.txt
