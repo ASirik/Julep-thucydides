@@ -121,49 +121,6 @@ public abstract class Common extends PageObject {
     public static final String OH_GUEST_ZIP = "12345";
     public static final String OH_GUEST_PHONE = "555.555.5555";
 
-    // TAX rates
-    public static final double WASHINGTON_TAX_RATE = .095;
-    public static final double NEW_JERSEY_TAX_RATE = .07;
-    public static final double NEW_YORK_TAX_RATE = .0888;
-    public static final double OHIO_TAX_RATE = .08;
-    public static final double COLORADO_TAX_RATE = 0.0;
-
-    //Shipping Rates
-    public static double economyShippingRate = 2.99;
-    public static double expressShippingRate = 14.99;
-    public static double overnightShippingRate = 24.99;
-
-    // Jules
-    public static final String julesAwardedBuyingFullPricedSubscription = "300 Jules";
-
-    // js scripts that come in handy
-    public static final String scrollScript = "window.scrollTo(0,Math.max(document.documentElement.scrollHeight," + "document.body.scrollHeight,document.documentElement.clientHeight));";
-    public static final String scrollToTopScript = "window.scroll(0,0);";
-
-    /* Pages Paths */
-    public static final String mavenExclusivePage = "maven-exclusive.html";
-    public static final String myJulesRewardsPage = "rewards/customer";
-    public static final String mavenSubscriptionPage = "maven-subscription.html";
-    public static final String siteMapPage = "sitemap.xml";
-    public static final String googleTagManger = "www.googletagmanager.com";
-
-    //common unique web element identifiers
-//    public static final By pageErrorMessage = By.cssSelector("h2[class~='system-error']");
-//    public static final By webPageTodoMessage = By.xpath("//div[@class='std' and contains(text(),'todo')]");
-//    public static final By mavenWindow = By.xpath("//div[@class = 'responsive-tabs-maven-label']");
-//    public static final By maven_monthly_button = By.xpath("//a[contains(@id, 'adjust-button-left')]");
-//    public static final String maven_monthly_button_id = "adjust-button-left";
-//    public static final String maven_monthly_button_righty_id = "adjust-button-right";
-//    public static final By pick_me_monthly_link = By.xpath("//a[@class='organic-funnel-btn add_to_cart_monthly']");
-//    public static final By julesSummary = By.xpath("//span[@class = 'points-summary-emphasize']");
-//    public static final By submitAddOnsButton = By.id("submit-addons");
-//    public static final By newMavenAddOnsModal = By.id("new-maven-addons");
-//    public static final By editMyBox = By.linkText("Edit My Box");
-//    public static final By try_new_style = By.xpath("//a[contains(@class, 'show-all button new-style-button')]");
-//    public static final By save_selections = By.xpath("//a[contains(@class, 'button btn-primary btn-large left maven-save')]");
-//    public static By checkoutNow = By.id("submit-form");
-
-
     @FindBy(name="search")
     private WebElement searchTerms;
 

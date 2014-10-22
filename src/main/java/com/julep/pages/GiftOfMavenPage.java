@@ -40,13 +40,13 @@ public class GiftOfMavenPage extends Common {
 //    private static final Logger LOGGER = LoggerFactory.getLogger(WebElementFacadeImpl.class);
 
     @FindBy(xpath="//button[@data-product-id='1770']")
-    public static WebElement TWO_BOXES_GIFT;
+    public static WebElement BUTTON_GIFT_TWO_BOXES;
 
     @FindBy(xpath="//button[@data-product-id='1771']")
-    public static WebElement FOUR_BOXES_GIFT;
+    public static WebElement BUTTON_GIFT_FOUR_BOXES;
 
     @FindBy(xpath="//button[@data-product-id='1772']")
-    public static WebElement SIX_BOXES_GIFT;
+    public static WebElement BUTTON_GIFT_SIX_BOXES;
 
     @FindBy(id="to")
     public static WebElement FIELD_NAME_TO;
@@ -85,32 +85,46 @@ public class GiftOfMavenPage extends Common {
 //        assertEquals("LOGIN/SIGN UP PAGE WAS NOT OPENED", harness.getSecureBaseURL() + PAGE_GIFT_OF_MAVEN, driver.getCurrentUrl());
 //    }
 
+
     /**
-     * Adds gift subscription to bag with optional gift type.
-     * @param giftType      String "6 boxes"|"4 boxes"|"2 boxes"
-     * @throws Exception    If argument is not recognized or any input is not visible
+     * Returns gift subscription button specified gift type.
+     * @param boxes      String "6 boxes"|"4 boxes"|"2 boxes"
+     * @return           WebElement || fails test
      */
-    public void addGiftToBagByName(String giftType) {
-            // handle subscription choice
-        if(giftType.equals("6 boxes")){
-            LOGGER.info("Choosing Gift: " + giftType);
-            $(SIX_BOXES_GIFT).click();
-        }else if (giftType.equals("4 boxes")){
-            LOGGER.info("Choosing Gift: " + giftType);
-            $(FOUR_BOXES_GIFT).click();
-        }else if (giftType.equals("2 boxes")){
-            LOGGER.info("Choosing Gift: " + giftType);
-            $(TWO_BOXES_GIFT).click();
+    public WebElement getGiftButtonByName(String boxes){
+        WebElement button = null;
+        if(boxes.equals("6 boxes")){
+            button = BUTTON_GIFT_SIX_BOXES;
+        }else if (boxes.equals("4 boxes")){
+            button = BUTTON_GIFT_FOUR_BOXES;
+        }else if (boxes.equals("2 boxes")){
+            button = BUTTON_GIFT_TWO_BOXES;
         }else {
             fail("UNKNOWN GIFT OF MAVEN TYPE");
         }
-        // fill all fields
+        return button;
+    }
+
+    /**
+     * Selects gift subscription with optional gift type.
+     * @param boxes      String "6 boxes"|"4 boxes"|"2 boxes"
+     */
+    public void selectGiftByName(String boxes) {
+        $(getGiftButtonByName(boxes)).click();
+    }
+
+    /**
+     * Adds gift subscription to bag with optional gift type.
+     * @param boxes      String "6 boxes"|"4 boxes"|"2 boxes"
+     */
+    public void addGiftToBagByName(String boxes) {
+        $(getGiftButtonByName(boxes)).click();
         $(FIELD_NAME_TO).type("Anyone");
         $(FIELD_EMAIL_TO).type(getUniqueEmailAddress());
         $(FIELD_NAME_FROM).type(TEST_FIRST_NAME);
         $(FIELD_EMAIL_FROM).type(getUniqueEmailAddress());
         $(FIELD_MESSAGE).type(GIFT_MESSAGE);
         $(BUTTON_ADD_TO_BAG).click();
-            // wait???
+        // wait???
     }
 }
